@@ -32,10 +32,14 @@ player2Sequence = 2
 [node name="Tile5" parent="Tiles" instance=ExtResource( 1 )]
 position = Vector2( 430.09, 76.4581 )
 player1Sequence = 3
+extraRole = true
+safeArea = true
 
 [node name="Tile6" parent="Tiles" instance=ExtResource( 1 )]
 position = Vector2( 558.09, 76.4581 )
 player2Sequence = 3
+extraRole = true
+safeArea = true
 
 [node name="Tile7" parent="Tiles" instance=ExtResource( 1 )]
 position = Vector2( 494.09, 76.4581 )
@@ -53,9 +57,11 @@ player1Sequence = 6
 player2Sequence = 6
 
 [node name="Tile10" parent="Tiles" instance=ExtResource( 1 )]
-position = Vector2( 494.09, 260.458 )
+position = Vector2( 494.09, 261.474 )
 player1Sequence = 7
 player2Sequence = 7
+extraRole = true
+safeArea = true
 
 [node name="Tile11" parent="Tiles" instance=ExtResource( 1 )]
 position = Vector2( 494.09, 324.458 )
@@ -84,6 +90,8 @@ player1Sequence = 12
 [node name="Tile16" parent="Tiles" instance=ExtResource( 1 )]
 position = Vector2( 358.09, 516.458 )
 player1Sequence = 13
+extraRole = true
+safeArea = true
 
 [node name="Tile17" parent="Tiles" instance=ExtResource( 1 )]
 position = Vector2( 558.09, 516.458 )
@@ -92,19 +100,21 @@ player2Sequence = 12
 [node name="Tile18" parent="Tiles" instance=ExtResource( 1 )]
 position = Vector2( 622.09, 516.458 )
 player2Sequence = 13
+extraRole = true
+safeArea = true
 
 [node name="Dice1" type="Area2D" parent="."]
-position = Vector2( 228.655, 257.031 )
+position = Vector2( 228.655, 256.015 )
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Label" type="Label" parent="Dice1"]
-margin_left = -53.1134
-margin_top = 23.5645
-margin_right = 10.8866
-margin_bottom = 37.5645
+margin_left = -176.0
+margin_top = 24.0
+margin_right = -81.0
+margin_bottom = 38.0
 rect_scale = Vector2( 4, 4 )
 text = "Role Dice"
 align = 2
@@ -124,10 +134,10 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Dice2"]
-margin_left = -53.1134
-margin_top = 23.5645
-margin_right = 10.8866
-margin_bottom = 37.5645
+margin_left = -53.0
+margin_top = 24.0
+margin_right = 45.0
+margin_bottom = 38.0
 rect_scale = Vector2( 4, 4 )
 text = "Role Dice"
 autowrap = true

@@ -1,7 +1,6 @@
 extends Node
 
-export var piecesPerPlayer := 5
-
+export var piecesPerPlayer := 1
 const STATES = ["P1ROLE, P1PLAY, P1ANIMATE, P2ROLE, P2PLAY, P2ANIMATE"]
 
 var playerTiles : = [null,[],[]]
@@ -57,17 +56,24 @@ func _on_diceRolled(playerId):
 		dice[playerId].noMoves()
 		_on_pieceMoved(playerId)
 
+func _on_extraRole(playerId):
+	dice[playerId].reset()
+
 
 func _on_pieceGoal(playerId):
 	playerPoints[playerId] += 1
 	if(playerPoints[playerId] == piecesPerPlayer):
-		print("Player "+ String(playerId) +" Wins")
+		dice[1].gameOver()
+		dice[2].gameOver()
+		dice[playerId].win("Player "+ String(playerId) +" Wins")
 
+		
 func _addPlayerPiece(piece : Object):
 		add_child(piece)
 		piece.connect("pieceSelected",self,"_on_pieceSelected")
 		piece.connect("pieceMoved",self,"_on_pieceMoved")
 		piece.connect("pieceGoal", self,"_on_pieceGoal")
+		piece.connect("extraRole", self, "_on_extraRole")
 
 func _sortP1Tiles(a,b):
 	return a.player1Sequence < b.player1Sequence

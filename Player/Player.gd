@@ -5,6 +5,7 @@ class_name Player
 signal pieceSelected
 signal pieceMoved
 signal pieceGoal
+signal extraRole
 
 export var playerId : int
 var stackSpace : = Vector2(0,-5)
@@ -86,7 +87,10 @@ func _input_event(viewport, event, shape_idx):
 				tiles[progress-1].leaveTile()
 			tiles[possibleProgress-1].occupy(self)
 			progress = possibleProgress
-			emit_signal("pieceMoved", playerId)
+			if(tiles[progress-1].extraRole == true):
+				emit_signal("extraRole",playerId)
+			else:
+				emit_signal("pieceMoved", playerId)
 			#animate?
 
 

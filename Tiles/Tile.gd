@@ -8,6 +8,13 @@ export var extraRole : bool = false
 export var safeArea : bool = false	
 var occupant : Object = null
 
+func _ready():
+	if(extraRole):
+		$Sprite.modulate = Color(0,0,.5)
+	if(safeArea):
+		$Sprite.modulate = Color(0.5,0,0)
+	if(extraRole and safeArea):
+		$Sprite.modulate = Color(0.5,0,0.5)
 func canOccupy(player):
 	if(occupant != null):
 		if(occupant.playerId == player.playerId):

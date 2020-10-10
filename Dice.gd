@@ -5,6 +5,7 @@ signal diceRolled
 var diceVal = null
 var rollable = false
 var playerId = null
+var gameOver = false
 
 var probabilities = [ [0, 6.25],
 					[1, 25],
@@ -26,9 +27,17 @@ func reset():
 func noMoves():
 	$Label.text = "No Moves: "+$Label.text
 	
+func win(text):
+	show()
+	$Label.text = text
+	
+func gameOver():
+	hide()
+	gameOver = true;
 
 func _input_event(viewport, event, shape_idx):
-	if(event.is_action_pressed('click')):
+	if(event.is_action_pressed('click') and !gameOver):
+		randomize()
 		var tempRand = randf()*totalProb
 		print(tempRand)
 		var rampProb = 0
