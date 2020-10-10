@@ -8,20 +8,20 @@ export var extraRole : bool = false
 export var safeArea : bool = false	
 var occupant : Object = null
 
-func occupy(player):
+func canOccupy(player):
 	if(occupant != null):
-		#Players cannot bump their own pieces
 		if(occupant.playerId == player.playerId):
 			return false
 		elif(safeArea):
 			return false
-		else:
-			occupant.home()
-			occupant = player
-			return true
+	return true	
+		
+func occupy(player):
+	if(occupant != null):
+		occupant.home()
+		occupant = player
 	else:
 		occupant = player
-		return true
 
 func leaveTile():
 	occupant = null

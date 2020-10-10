@@ -4,37 +4,41 @@ class_name Player
 
 signal pieceSelected
 signal pieceMoved
+signal pieceGoal
+
 export var playerId : int
 var stackSpace : = Vector2(0,-5)
 var progress : = 0
 var selectable : = true
-var done : = false
+var playerTurn : = false
 
 var tiles : Array
-var home : Node2D
-var goal : Node2D
+var homeStack : Node2D
+var goalStack : Node2D
+var dice : Node2D
 
-
-func init(playerId : int, stackOffset : int, tiles: Array, homePos : Node2D, goalPos : Node2D, dice : Node2D):
-	#connect("pieceSelected",get_parent(),"playerSelected",)
-	#connect("pieceMoved",get_parent(),"playerMoved")
+func init(playerId : int, stackOffset : int, tiles: Array, homeStack : Node2D, goalStack : Node2D, dice : Node2D):
 	self.tiles = tiles
 	self.playerId = playerId
-	self.home = homePos
-	self.goal = goalPos
+	if(playerId == 1):
+		$PlayerSprite.modulate = Color(1.5,1.5,1.5)
+	else:
+		$PlayerSprite.modulate = Color(0.5,0.5,0.5)
+	self.homeStack = homeStack
+	self.goalStack = goalStack
+	self.dice = dice
 	home()
 	
 
 func home():
 	progress = 0
 	raise()
-	self.set_position(home.get_position() + stackSpace * home.add(self))
+	self.set_position(homeStack.get_position() + stackSpace * homeStack.add(self))
 
 func goal():
 	unselectable()
-	done = true
 	raise()
-	self.set_position(goal.get_position() + stackSpace * goal.add(self))
+	self.set_position(goalStack.get_position() + stackSpace * goalStack.add(self))
 
 func selectable():
 	selectable = true
@@ -43,40 +47,46 @@ func selectable():
 func unselectable():
 	selectable = false
 	pass
-#
+
+func canMove():
+	var possibleProgress = progress + dice.diceVal
+	if(selectable == false or dice.diceVal == 0):
+		return false
+	if(possibleProgress > tiles.size()+1):
+		return false
+	if(possibleProgress == tiles.size()+1):
+		return true
+	print(self)
+	if(tiles[possibleProgress-1].canOccupy(self)):
+		return true
+	return false
+		
 func _input_event(viewport, event, shape_idx):
 	# Selectability (in stack) and player turn need to be true
-	# Roll needs to be higher than 0.. game logic
-	
-	if(event.is_action_pressed('click') and selectable): 
+	# Roll needs to be higher than 0.. game logi
+	if(event.is_action_pressed('click') and selectable and playerTurn and canMove()): 
+
 		#Check where the piece would move
-		var possibleProgress = progress + 2 #dicevalue
+		var possibleProgress = progress + dice.diceVal
 		#is the piece movign off the board? (0 for home, size+1for goal)
-		print(progress)
 		if(possibleProgress > tiles.size()):
-			if(possibleProgress > tiles.size()+1):
-				print("No Move")
-				pass #Roll was too big animate shake
+			tiles[progress-1].leaveTile()
+			progress = possibleProgress
+			emit_signal("pieceSelected", playerId)
+			goal()
+			emit_signal("pieceMoved", playerId)
+			emit_signal("pieceGoal", playerId)
+		#the piece can move to an open space			
+		else:
+			emit_signal("pieceSelected", playerId)
+			self.set_position(tiles[possibleProgress-1].get_position())
+			if(progress == 0):
+				homeStack.removeTop()
 			else:
 				tiles[progress-1].leaveTile()
-				progress = possibleProgress
-				emit_signal("pieceSelected")
-				goal()
-				emit_signal("pieceMoved")
-				
-				
-		else:
-			if(tiles[possibleProgress-1].occupy(self)):
-				emit_signal("pieceSelected")
-				self.set_position(tiles[possibleProgress-1].get_position())
-				if(progress == 0):
-					home.removeTop()
-				else:
-					tiles[progress-1].leaveTile()
-				progress = possibleProgress
-				emit_signal("pieceMoved")
-				#animate?
-			else:
-				print("No Move")
-				#animate negate
-				pass
+			tiles[possibleProgress-1].occupy(self)
+			progress = possibleProgress
+			emit_signal("pieceMoved", playerId)
+			#animate?
+
+
