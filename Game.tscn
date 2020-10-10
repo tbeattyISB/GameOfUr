@@ -6,127 +6,153 @@
 [ext_resource path="res://Dice.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 24, 10 )
+extents = Vector2( 134.602, 33.3113 )
 
 [node name="Game" type="Node"]
 script = ExtResource( 2 )
 
 [node name="Tiles" type="Node" parent="."]
 
-[node name="RedTile1" parent="Tiles" instance=ExtResource( 1 )]
-position = Vector2( 48, 48 )
+[node name="Tile1" parent="Tiles" instance=ExtResource( 1 )]
+position = Vector2( 302.09, 76.4581 )
 player1Sequence = 1
 
-[node name="BlueTile1" parent="Tiles" instance=ExtResource( 1 )]
-position = Vector2( 432, 48 )
+[node name="Tile2" parent="Tiles" instance=ExtResource( 1 )]
+position = Vector2( 686.09, 76.4581 )
 player2Sequence = 1
 
-[node name="RedTile2" parent="Tiles" instance=ExtResource( 1 )]
-position = Vector2( 112, 48 )
+[node name="Tile3" parent="Tiles" instance=ExtResource( 1 )]
+position = Vector2( 366.09, 76.4581 )
 player1Sequence = 2
 
-[node name="BlueTile2" parent="Tiles" instance=ExtResource( 1 )]
-position = Vector2( 368, 48 )
+[node name="Tile4" parent="Tiles" instance=ExtResource( 1 )]
+position = Vector2( 622.09, 76.4581 )
 player2Sequence = 2
 
-[node name="RedTile3" parent="Tiles" instance=ExtResource( 1 )]
-position = Vector2( 176, 48 )
+[node name="Tile5" parent="Tiles" instance=ExtResource( 1 )]
+position = Vector2( 430.09, 76.4581 )
 player1Sequence = 3
 
-[node name="BlueTile3" parent="Tiles" instance=ExtResource( 1 )]
-position = Vector2( 304, 48 )
+[node name="Tile6" parent="Tiles" instance=ExtResource( 1 )]
+position = Vector2( 558.09, 76.4581 )
 player2Sequence = 3
 
-[node name="Tile4" parent="Tiles" instance=ExtResource( 1 )]
-position = Vector2( 240, 48 )
+[node name="Tile7" parent="Tiles" instance=ExtResource( 1 )]
+position = Vector2( 494.09, 76.4581 )
 player1Sequence = 4
 player2Sequence = 4
 
-[node name="Tile5" parent="Tiles" instance=ExtResource( 1 )]
-position = Vector2( 240, 104 )
+[node name="Tile8" parent="Tiles" instance=ExtResource( 1 )]
+position = Vector2( 494.09, 132.458 )
 player1Sequence = 5
 player2Sequence = 5
 
-[node name="Tile6" parent="Tiles" instance=ExtResource( 1 )]
-position = Vector2( 240, 168 )
+[node name="Tile9" parent="Tiles" instance=ExtResource( 1 )]
+position = Vector2( 494.09, 196.458 )
 player1Sequence = 6
 player2Sequence = 6
 
-[node name="Tile7" parent="Tiles" instance=ExtResource( 1 )]
-position = Vector2( 240, 232 )
+[node name="Tile10" parent="Tiles" instance=ExtResource( 1 )]
+position = Vector2( 494.09, 260.458 )
 player1Sequence = 7
 player2Sequence = 7
 
-[node name="Tile8" parent="Tiles" instance=ExtResource( 1 )]
-position = Vector2( 240, 296 )
+[node name="Tile11" parent="Tiles" instance=ExtResource( 1 )]
+position = Vector2( 494.09, 324.458 )
 player1Sequence = 8
 player2Sequence = 8
 
-[node name="Tile9" parent="Tiles" instance=ExtResource( 1 )]
-position = Vector2( 240, 360 )
+[node name="Tile12" parent="Tiles" instance=ExtResource( 1 )]
+position = Vector2( 494.09, 388.458 )
 player1Sequence = 9
 player2Sequence = 9
 
-[node name="Tile10" parent="Tiles" instance=ExtResource( 1 )]
-position = Vector2( 240, 424 )
+[node name="Tile13" parent="Tiles" instance=ExtResource( 1 )]
+position = Vector2( 494.09, 452.458 )
 player1Sequence = 10
 player2Sequence = 10
 
-[node name="Tile11" parent="Tiles" instance=ExtResource( 1 )]
-position = Vector2( 240, 488 )
+[node name="Tile14" parent="Tiles" instance=ExtResource( 1 )]
+position = Vector2( 494.09, 516.458 )
 player1Sequence = 11
 player2Sequence = 11
 
-[node name="RedTile12" parent="Tiles" instance=ExtResource( 1 )]
-position = Vector2( 176, 488 )
+[node name="Tile15" parent="Tiles" instance=ExtResource( 1 )]
+position = Vector2( 430.09, 516.458 )
 player1Sequence = 12
 
-[node name="BlueTile12" parent="Tiles" instance=ExtResource( 1 )]
-position = Vector2( 304, 488 )
-player2Sequence = 12
-
-[node name="BlueTile13" parent="Tiles" instance=ExtResource( 1 )]
-position = Vector2( 368, 488 )
-player2Sequence = 13
-
-[node name="Tile13" parent="Tiles" instance=ExtResource( 1 )]
-position = Vector2( 104, 488 )
+[node name="Tile16" parent="Tiles" instance=ExtResource( 1 )]
+position = Vector2( 358.09, 516.458 )
 player1Sequence = 13
 
-[node name="Dice" type="Area2D" parent="."]
-position = Vector2( 376, 264 )
-script = ExtResource( 4 )
+[node name="Tile17" parent="Tiles" instance=ExtResource( 1 )]
+position = Vector2( 558.09, 516.458 )
+player2Sequence = 12
 
-[node name="Label" type="Label" parent="Dice"]
-margin_left = 640.0
-margin_top = 64.0
-margin_right = 680.0
-margin_bottom = 78.0
-text = "Dice"
+[node name="Tile18" parent="Tiles" instance=ExtResource( 1 )]
+position = Vector2( 622.09, 516.458 )
+player2Sequence = 13
+
+[node name="Dice1" type="Area2D" parent="."]
+position = Vector2( 228.655, 257.031 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="Dice1"]
+margin_left = -53.1134
+margin_top = 23.5645
+margin_right = 10.8866
+margin_bottom = 37.5645
+rect_scale = Vector2( 4, 4 )
+text = "Role Dice"
+align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Dice"]
-position = Vector2( 656, 72 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dice1"]
+position = Vector2( 71.8956, 49.3683 )
+shape = SubResource( 1 )
+
+[node name="Dice2" type="Area2D" parent="."]
+position = Vector2( 611.952, 256.685 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="Dice2"]
+margin_left = -53.1134
+margin_top = 23.5645
+margin_right = 10.8866
+margin_bottom = 37.5645
+rect_scale = Vector2( 4, 4 )
+text = "Role Dice"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dice2"]
+position = Vector2( 71.8956, 49.3683 )
 shape = SubResource( 1 )
 
 [node name="Player1Home" type="Node2D" parent="."]
-position = Vector2( 48, 104 )
+position = Vector2( 302.09, 132.458 )
 script = ExtResource( 3 )
 
 [node name="Player1Goal" type="Node2D" parent="."]
-position = Vector2( 48, 488 )
+position = Vector2( 302.09, 516.458 )
 script = ExtResource( 3 )
 
 [node name="Player2Home" type="Node2D" parent="."]
-position = Vector2( 432, 104 )
+position = Vector2( 686.09, 132.458 )
 script = ExtResource( 3 )
 
 [node name="Player2Goal" type="Node2D" parent="."]
-position = Vector2( 424, 488 )
+position = Vector2( 678.09, 516.458 )
 script = ExtResource( 3 )
-
-[node name="Dice1" type="Node2D" parent="."]
-
-[node name="Dice2" type="Node2D" parent="."]
+[connection signal="diceRolled" from="Dice1" to="." method="_on_diceRolled"]
+[connection signal="diceRolled" from="Dice2" to="." method="_on_diceRolled"]
