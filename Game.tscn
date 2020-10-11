@@ -10,6 +10,7 @@ extents = Vector2( 134.602, 33.3113 )
 
 [node name="Game" type="Node"]
 script = ExtResource( 2 )
+piecesPerPlayer = 5
 
 [node name="Tiles" type="Node" parent="."]
 
