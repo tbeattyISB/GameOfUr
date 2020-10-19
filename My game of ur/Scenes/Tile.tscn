@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/Tile.gd" type="Script" id=1]
+
+[node name="Tile" type="Sprite"]
+script = ExtResource( 1 )
+image1 = "res://Sprites/Image1.png"
+image2 = "res://Sprites/Image2.png"
+image3 = "res://Sprites/Image3.png"
+image4 = "res://Sprites/Image4.png"
+image5 = "res://Sprites/Image5.png"
+image6 = "res://Sprites/Image6.png"

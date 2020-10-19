@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/FadeMessage.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/sixty.tres" type="DynamicFont" id=2]
+
+[node name="FadeMessage" type="ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -135.0
+margin_top = -38.0
+margin_right = 135.0
+margin_bottom = 38.0
+color = Color( 0, 1, 0, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_left = 0.503134
+anchor_top = 0.5
+anchor_right = 0.503134
+anchor_bottom = 0.5
+margin_left = -132.846
+margin_top = -35.0
+margin_right = 131.154
+margin_bottom = 35.0
+color = Color( 0, 0, 1, 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 5.0
+margin_right = 260.0
+margin_bottom = 68.0
+rect_scale = Vector2( 0.874165, 0.874165 )
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 1, 0, 1 )
+text = "Roll Dice!"
+__meta__ = {
+"_edit_use_anchors_": false
+}

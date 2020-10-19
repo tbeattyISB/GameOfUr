@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scripts/Piece.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Black.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/BlackDots.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/WhiteDots.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/White.png" type="Texture" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "Black",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "WhiteDot",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "BlackDot",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "White",
+"speed": 5.0
+} ]
+
+[node name="Piece" type="AnimatedSprite"]
+frames = SubResource( 1 )
+animation = "WhiteDot"
+script = ExtResource( 1 )
+player = true
